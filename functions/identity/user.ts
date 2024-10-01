@@ -6,6 +6,7 @@ type GitGatewayPagesPluginFunction<
   Data extends Record<string, unknown> = Record<string, unknown>,
 > = PagesPluginFunction<Env, Params, Data, PluginArgs>
 
+
 export const onRequestGet: GitGatewayPagesPluginFunction = async (ctx) => {
     const { email } = ctx.pluginArgs
 
