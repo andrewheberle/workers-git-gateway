@@ -10,9 +10,9 @@ npm install andrewheberle/workers-git-gateway
 
 ## Authentication/Security
 
-As this plugin provides no authentication, you must ensure your CMS path (eg `/admin`) and the path used for the git gateway (ie `/.netlify`) are protected by Cloudflare Access.
+As this plugin provides _no authentication_, you **must** ensure your CMS path (eg `/admin`) and the path used for the git gateway (ie `/.netlify`) are protected by Cloudflare Access/Cloudflare Zero Trust.
 
-If you do not do this then you are essentially providing access to any repository the provided GitHub Access Token can read/write.
+If you do not do this then you are essentially providing unrestricted access to any repository the provided GitHub Access Token can read/write.
 
 ## Usage
 
@@ -28,3 +28,7 @@ export const onRequest: PagesFunction = gitGatewayPlugin({
 ```
 
 In addition you should ensure the `/admin` path is protected by Cloudflare Access under the same Application.
+
+## Important!
+
+**Note:** Once again, the plugin does **not** perform any authentication of the requests it receives as it is assumes the requests are secured "upstream" via Cloudflare Access/Cloudflare Zero Trust.
