@@ -5,7 +5,7 @@ This Cloudflare Pages Plugin provides a bare bones implementation of the Netlify
 ## Installation
 
 ```
-npm install andrewheberle/workers-git-gateway
+npm install workers-git-gateway
 ```
 
 ## Authentication/Security
@@ -19,7 +19,7 @@ If you do not do this then you are essentially providing unrestricted access to 
 Create a `[[path]].ts` file at `/functions/.netlify` as follows:
 
 ```typescript
-import gitGatewayPlugin from "andrewheberle/workers-git-gateway"
+import gitGatewayPlugin from "workers-git-gateway"
 
 export const onRequest: PagesFunction = gitGatewayPlugin({
     repo: "example/repo",
