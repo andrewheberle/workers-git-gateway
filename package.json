@@ -21,6 +21,7 @@
         "./index.d.ts"
     ],
     "scripts": {
+        "test": "echo \"Warning: no tests at this time\"",
         "build": "npx wrangler pages functions build --plugin --outdir=dist",
         "prepare": "npm run build"
     },
