@@ -29,7 +29,7 @@ router
         const url = new URL(req.url)
 
         // check access
-        const allowed = new RegExp(/^\/\.netlify\/git\/github\/((git|contents|pulls|branches|merges|statuses|compare|commits)\/?|(issues\/(\\d+)\/labels))/)
+        const allowed = new RegExp(/^\/\.netlify\/git\/github\/((git|contents|pulls|branches|merges|statuses|compare|commits)\/?|(issues\/(\d+)\/labels))/)
         if (!allowed.test(url.pathname)) {
             return error(401)
         }
