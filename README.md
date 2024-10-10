@@ -21,13 +21,24 @@ Create a `[[path]].ts` file at `/functions/.netlify` as follows:
 ```typescript
 import gitGatewayPlugin from "workers-git-gateway"
 
-export const onRequest: PagesFunction = gitGatewayPlugin({
-    repo: "example/repo",
-    token: "gh-ACCESS-TOKEN",
-})
+interface Env {
+    GH_ACCESS_TOKEN: string
+    GH_REPO: string
+}
+
+export const onRequest: PagesFunction<Env> = (context) => {
+    return gitGatewayPlugin({
+        repo: context.env.GH_REPO,
+        token: context.env.GH_ACCESS_TOKEN,
+    })(context)
+}
 ```
 
 In addition you should ensure the `/admin` path is protected by Cloudflare Access under the same Application.
+
+### Add environment variables
+
+You must add the relevant variables to your Cloudflare Pages project that match the names referenced in your code (see above).
 
 ## Important!
 
