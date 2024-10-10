@@ -1,4 +1,4 @@
-import { PluginArgs } from "andrewheberle/workers-git-gateway"
+import { PluginArgs } from "workers-git-gateway"
 import { IttyRouter, IRequest, json, error } from "itty-router"
 
 type GitGatewayPagesPluginFunction<
